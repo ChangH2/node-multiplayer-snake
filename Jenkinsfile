@@ -1,5 +1,5 @@
 node ('master'){  
-    //def app
+    def app
     stage('Cloning Git') {
         /* Let's make sure we have the repository cloned to our workspace */
        checkout scm
@@ -11,19 +11,17 @@ node ('master'){
     */
     
     stage('Build-and-Tag') {
-        sh 'echo Build-and-Tag'
     /* This builds the actual image; synonymous to
          * docker build on the command line */
-        //app = docker.build("letsgetit/snake")
+        app = docker.build("letsgetit/snake")
     }
    
     stage('Post-to-dockerhub') {
-        sh 'echo Post-to-dockerhub'
-        /*
-        docker.withRegistry('https://registry.hub.docker.com', 'training_creds') {
+        
+        docker.withRegistry('https://registry.hub.docker.com', 'test-id') {
             app.push("latest")
         }
-        */
+        
     }
     /*    
     stage('SECURITY-IMAGE-SCANNER'){
@@ -32,11 +30,11 @@ node ('master'){
     */
     
     stage('Pull-image-server') {
-        sh 'echo pull-meage-server'
-        /*
+
+        
          sh "docker-compose down"
          sh "docker-compose up -d"
-         */
+    
     }
     
     /*
