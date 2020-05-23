@@ -11,7 +11,7 @@ node ('master'){
     */
     
     stage('Build-and-Tag') {
-        sh 'echp Build-andTag'
+        sh 'echo Build-and-Tag'
     /* This builds the actual image; synonymous to
          * docker build on the command line */
         //app = docker.build("letsgetit/snake")
