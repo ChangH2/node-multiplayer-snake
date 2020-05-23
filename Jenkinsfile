@@ -19,10 +19,10 @@ node ('master'){
    
     stage('Post-to-dockerhub') {
         sh 'echo Post-to-dockerhub'
-    /*
-     docker.withRegistry('https://registry.hub.docker.com', 'training_creds') {
+        /*
+        docker.withRegistry('https://registry.hub.docker.com', 'training_creds') {
             app.push("latest")
-      }
+        }
         */
     }
     /*    
@@ -33,16 +33,17 @@ node ('master'){
     
     stage('Pull-image-server') {
         sh 'echo pull-meage-server'
-    /*
+        /*
          sh "docker-compose down"
          sh "docker-compose up -d"
          */
-      }
+    }
+    
     /*
     stage('DAST')
         {
         build 'SECURITY-DAST-OWASP_ZAP'
         }
-        */
+     */
  
 }
