@@ -3,9 +3,9 @@ services:
   snake:
     image: 'letsgetit/snake'
     environment:
-      - "PORT:3000"
+      - "PORT:4000"
     ports:
-      - "80:3000"
+      - "80:4000"
     volumes:
       - ./:/app
 
