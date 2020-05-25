@@ -20,7 +20,7 @@ node ('Ubuntu-app-agent'){
         
         sh 'echo test1'
         
-        docker.withRegistry('https://registry.hub.docker.com', 'test') {
+        docker.withRegistry('https://registry.hub.docker.com', 'test_id') {
             app.push("latest")
         }
         sh 'echo test2'
