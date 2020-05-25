@@ -20,7 +20,7 @@ node ('master'){
         
         sh 'echo test1'
         
-        docker.withRegistry('https://registry.hub.docker.com/letsgetit/snake', 'test') {
+        docker.withRegistry('https://hub.docker.com/repository/docker/letsgetit/snake', 'test') {
             app.push("latest")
         }
         sh 'echo test2'
