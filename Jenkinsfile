@@ -19,10 +19,10 @@ node ('Ubuntu-app-agent'){
     stage('Post-to-dockerhub') {
         
         sh 'echo test1'
-        /*
-        docker.withRegistry('https://registry.hub.docker.com', 'test_id') {
+        
+        docker.withRegistry('https://registry.hub.docker.com', 'test-id') {
             app.push("latest")
-        }*/
+        }
         sh 'echo test2'
     }
     /*    
