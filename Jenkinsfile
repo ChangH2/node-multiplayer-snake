@@ -17,8 +17,10 @@ node ('master'){
     }
    
     stage('Post-to-dockerhub') {
+        
         sh 'echo test1'
-        docker.withRegistry('https://registry.hub.docker.com', 'test') {
+        
+        docker.withRegistry('https://registry.hub.docker.com/letsgetit/snake', 'test') {
             app.push("latest")
         }
         sh 'echo test2'
