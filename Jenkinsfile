@@ -35,10 +35,11 @@ node ('Ubuntu-app-agent'){
 
         
          //sh "docker-compose down"
+         sh "cd /home/appserver/app-test/node-multiplayer-snake" 
          sh "docker stop nodemultiplayersnake_snake_1"
-         sh "cd /home/appserver/app-test/node-multiplayer-snake"
+         sh "docker stop multiplayersnake_snake_1" 
          sh "docker-compose up -d"
-
+      
     }
     
     
