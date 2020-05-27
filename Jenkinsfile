@@ -34,10 +34,10 @@ node ('Ubuntu-app-agent'){
     stage('Pull-image-server') {
 
         
-         //sh "docker-compose down"
-         sh "docker stop multiplayersnake_snake_1"
+         sh "docker-compose down"
+         //sh "docker stop multiplayersnake_snake_1"
          sh "docker-compose up -d"
-    
+         sleeop 1000
     }
     
     
