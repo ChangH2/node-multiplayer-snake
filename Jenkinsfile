@@ -2,6 +2,7 @@
 
 node ('Ubuntu-app-agent'){  
     def app
+    /*
    stage('Email') {
     steps {
         script {
@@ -12,14 +13,15 @@ node ('Ubuntu-app-agent'){
             replyTo: "jg653232@gmail.com"
         }
     }
-}
+}*/
     try {
         notifyBuild('STARTED')
         
        stage('Cloning Git') {
             /* Let's make sure we have the repository cloned to our workspace */
             checkout scm
-            emailext (
+       /*
+           emailext (
         subject: 'subject',
         
         body : 'detail',
@@ -27,7 +29,8 @@ node ('Ubuntu-app-agent'){
         
         // recipentProviders: [[$class: 'DevelopersRecipientProvider']]
             to: 'gusgh1203@gmail.com'
-    )
+    )*/
+           
        } 
     
         stage('SAST'){
