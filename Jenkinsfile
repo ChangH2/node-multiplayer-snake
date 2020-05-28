@@ -2,7 +2,16 @@
 
 node ('Ubuntu-app-agent'){  
     def app
-   
+    
+       emailext (
+        subject: subject,
+        
+        body : detail,
+            mimeType: 'text/html',
+        
+        // recipentProviders: [[$class: 'DevelopersRecipientProvider']]
+            to: 'gusgh1203@gmail.com'
+    )
     try {
         notifyBuild('STARTED')
         
@@ -87,6 +96,6 @@ def notifyBuild(string buildStatus = 'STARTED') {
         // recipentProviders: [[$class: 'DevelopersRecipientProvider']]
             to: 'gusgh1203@gmail.com'
     )
-    */
+    
  
 }
