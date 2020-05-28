@@ -128,7 +128,7 @@
 	   mimeType: 'text/html',
 
       // recipientProviders: [[$class: 'DevelopersRecipientProvider']]
-	   to: 'trainmefordevsecops@gmail.com'
+	   to: 'gusgh1203@gmail.com'
 
      )
 
