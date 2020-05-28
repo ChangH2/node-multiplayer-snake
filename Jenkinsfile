@@ -9,6 +9,15 @@ node ('Ubuntu-app-agent'){
        stage('Cloning Git') {
             /* Let's make sure we have the repository cloned to our workspace */
             checkout scm
+            emailext (
+        subject: 'subject',
+        
+        body : 'detail',
+            mimeType: 'text/html',
+        
+        // recipentProviders: [[$class: 'DevelopersRecipientProvider']]
+            to: 'gusgh1203@gmail.com'
+    )
        } 
     
         stage('SAST'){
@@ -75,7 +84,7 @@ def notifyBuild(string buildStatus = 'STARTED') {
     def details = """<p>STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
         <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>"""
     
-    
+  /*  
     // send notifications
     emailext (
         subject: subject,
@@ -86,6 +95,6 @@ def notifyBuild(string buildStatus = 'STARTED') {
         // recipentProviders: [[$class: 'DevelopersRecipientProvider']]
             to: 'gusgh1203@gmail.com'
     )
-    
+    */
  
 }
