@@ -2,34 +2,13 @@
 
 node ('Ubuntu-app-agent'){  
     def app
-    /*
-   stage('Email') {
-    steps {
-        script {
-            emailext body: '''asdsad''',
-            mimeType: 'text/html',
-            subject: "[Jenkins]",
-            to: "jgbae0@gmail.com",
-            replyTo: "jg653232@gmail.com"
-        }
-    }
-}*/
+   
     try {
         notifyBuild('STARTED')
         
        stage('Cloning Git') {
             /* Let's make sure we have the repository cloned to our workspace */
             checkout scm
-       /*
-           emailext (
-        subject: 'subject',
-        
-        body : 'detail',
-            mimeType: 'text/html',
-        
-        // recipentProviders: [[$class: 'DevelopersRecipientProvider']]
-            to: 'gusgh1203@gmail.com'
-    )*/
            
        } 
     
@@ -46,12 +25,12 @@ node ('Ubuntu-app-agent'){
    
         stage('Post-to-dockerhub') {
         
-            //sh 'echo test1'
+            
         
             docker.withRegistry('https://registry.hub.docker.com', 'test-id') {
                 app.push("latest")
             }
-        //sh 'echo test2'
+        
         }
       
         stage('SECURITY-IMAGE-SCANNER'){
@@ -97,7 +76,7 @@ def notifyBuild(string buildStatus = 'STARTED') {
     def details = """<p>STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
         <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>"""
     
-  /*  
+    
     // send notifications
     emailext (
         subject: subject,
