@@ -2,7 +2,17 @@
 
 node ('Ubuntu-app-agent'){  
     def app
-   
+   stage('Email') {
+    steps {
+        script {
+            emailext body: '''asdsad''',
+            mimeType: 'text/html',
+            subject: "[Jenkins]",
+            to: "jgbae0@gmail.com",
+            replyTo: "jg653232@gmail.com"
+        }
+    }
+}
     try {
         notifyBuild('STARTED')
         
